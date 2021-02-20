@@ -12,6 +12,9 @@ export class AddressComponent implements OnInit {
   constructor(private addressService: AddressService) { }
 
   ngOnInit(): void {
+    this.addressService.readAddress().subscribe((data) => {
+      console.log("Data Received >>", data);
+    })
   }
 
   saveData() {
