@@ -1,3 +1,5 @@
+import { AddressService } from './../address.service';
+import { Address } from './../address';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./address.component.css']
 })
 export class AddressComponent implements OnInit {
-
-  constructor() { }
+  formData: Address = new Address();
+  constructor(private addressService: AddressService) { }
 
   ngOnInit(): void {
+  }
+
+  saveData() {
+    console.log(this.formData);
+    this.addressService.saveAddress(this.formData);
   }
 
 }
